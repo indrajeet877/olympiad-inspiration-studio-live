@@ -1765,12 +1765,295 @@
       background: #f4d793;
     }
 
+    /* Olympiad Atelier refresh */
+    :root {
+      --atelier-ink: #12100c;
+      --atelier-night: #171411;
+      --atelier-ivory: #fffdf6;
+      --atelier-paper: #faf5e8;
+      --atelier-gold: #d5a94a;
+      --atelier-emerald: #174f47;
+      --atelier-ruby: #7d2d3f;
+      --atelier-blue: #203c66;
+      --atelier-line: rgba(18, 16, 12, .12);
+    }
+
+    body {
+      background:
+        linear-gradient(180deg, rgba(23, 20, 17, .08), transparent 290px),
+        linear-gradient(90deg, rgba(32, 60, 102, .055) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(213, 169, 74, .06) 1px, transparent 1px),
+        #ede7da;
+      background-size: auto, 56px 56px, 56px 56px, auto;
+    }
+
+    .topbar {
+      min-height: 76px;
+      background:
+        linear-gradient(90deg, #12100c, #1c1813 58%, #183d38);
+      border-bottom: 1px solid rgba(213, 169, 74, .34);
+    }
+
+    .brandmark {
+      background: linear-gradient(135deg, #f6dfa0, #bd8d26);
+      border-color: rgba(255, 244, 210, .86);
+      box-shadow: inset 0 0 0 1px rgba(18, 16, 12, .22), 0 10px 24px rgba(0, 0, 0, .25);
+    }
+
+    .brand h1 {
+      font-size: 25px;
+    }
+
+    .view-switcher {
+      border-color: rgba(213, 169, 74, .3);
+      background: rgba(255, 253, 246, .09);
+    }
+
+    .mode-tab.active,
+    .top-actions .primary,
+    .audience-tab.active {
+      background: linear-gradient(135deg, #ffe6a2, #d5a94a) !important;
+      color: #12100c !important;
+      border-color: rgba(255, 230, 162, .72) !important;
+    }
+
+    .main {
+      grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
+      gap: 24px;
+      padding-top: 26px;
+    }
+
+    .sidebar,
+    .stage,
+    .mission-control,
+    .share-studio,
+    .detail-panel,
+    .whatsapp-panel,
+    .archive-panel {
+      border-color: var(--atelier-line);
+      box-shadow: 0 24px 70px rgba(18, 16, 12, .12);
+    }
+
+    .stage {
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255, 253, 246, .98), rgba(250, 245, 232, .95) 52%, rgba(232, 241, 238, .96)),
+        #fffdf6;
+      border: 1px solid rgba(213, 169, 74, .22);
+      border-top: 4px solid #171411;
+    }
+
+    .stage::before {
+      width: 8px;
+      background: linear-gradient(180deg, #171411, #d5a94a 45%, #174f47);
+    }
+
+    .stage-inner {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      padding: clamp(26px, 3.5vw, 52px);
+    }
+
+    h2 {
+      font-size: clamp(45px, 5.4vw, 84px);
+      line-height: .9;
+      color: #12100c;
+    }
+
+    .headline {
+      max-width: 920px;
+      font-size: clamp(25px, 2.55vw, 40px);
+      line-height: 1.08;
+    }
+
+    .stage-card {
+      align-content: center;
+      gap: 18px;
+      border-color: rgba(213, 169, 74, .28);
+      background:
+        linear-gradient(180deg, rgba(255, 253, 246, .96), rgba(239, 248, 244, .9));
+      box-shadow: 0 18px 42px rgba(23, 20, 17, .09);
+    }
+
+    .stage-card h3 {
+      color: #174f47;
+    }
+
+    .review-badge,
+    .chip {
+      border-radius: 8px;
+    }
+
+    .share-studio {
+      display: grid;
+      grid-template-columns: minmax(0, .74fr) minmax(520px, 1.26fr);
+      gap: 18px;
+      border-radius: 8px;
+      padding: clamp(18px, 2.4vw, 26px);
+      background:
+        linear-gradient(135deg, rgba(23, 20, 17, .96), rgba(23, 20, 17, .91) 48%, rgba(23, 79, 71, .92)),
+        #171411;
+      color: #fffdf6;
+    }
+
+    .share-studio-copy {
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .share-kicker {
+      width: fit-content;
+      border: 1px solid rgba(213, 169, 74, .45);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: #ffe6a2;
+      background: rgba(255, 253, 246, .08);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .share-studio-copy h3 {
+      margin: 0;
+      max-width: 520px;
+      font-family: var(--serif);
+      font-size: clamp(25px, 2.8vw, 38px);
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    .share-studio-copy p {
+      margin: 0;
+      color: rgba(255, 253, 246, .76);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 720;
+    }
+
+    .share-pack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .share-card {
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      min-height: 190px;
+      border: 1px solid rgba(255, 230, 162, .22);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 253, 246, .08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07);
+    }
+
+    .share-card strong {
+      display: block;
+      color: #fffdf6;
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.08;
+    }
+
+    .share-card span {
+      display: block;
+      margin-top: 4px;
+      color: #ffe6a2;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .share-card p {
+      margin: 0;
+      color: rgba(255, 253, 246, .76);
+      font-size: 12.5px;
+      line-height: 1.42;
+      font-weight: 720;
+    }
+
+    .share-card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .share-card-actions button {
+      min-height: 34px;
+      border-color: rgba(255, 230, 162, .3);
+      color: #fffdf6;
+      background: rgba(255, 253, 246, .08);
+      font-size: 12px;
+    }
+
+    .share-card-actions button:first-child {
+      color: #12100c;
+      background: linear-gradient(135deg, #ffe6a2, #d5a94a);
+    }
+
+    .mission-control {
+      background:
+        linear-gradient(135deg, rgba(255, 253, 246, .98), rgba(238, 246, 243, .95)),
+        #fffdf6;
+    }
+
+    .mission-copy h3 {
+      font-size: clamp(28px, 3.4vw, 48px);
+    }
+
+    .detail-panel,
+    .archive-panel {
+      background: #fffdf6;
+    }
+
+    .whatsapp-panel {
+      background:
+        linear-gradient(180deg, #171411, #201a13);
+      border-color: rgba(213, 169, 74, .3);
+    }
+
+    .message-toolbar {
+      background: transparent;
+    }
+
+    .message-toolbar h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: .04em;
+    }
+
+    .message-frame {
+      background: #171411;
+    }
+
+    .message-spark {
+      background:
+        linear-gradient(135deg, rgba(213, 169, 74, .18), rgba(23, 79, 71, .16)),
+        rgba(255, 253, 246, .055);
+      border: 1px solid rgba(213, 169, 74, .2);
+      border-radius: 8px;
+    }
+
+    textarea {
+      min-height: 640px;
+      border-color: rgba(213, 169, 74, .36);
+      background: #fffdf6;
+    }
+
     @media (max-width: 1160px) {
       .content-grid {
         grid-template-columns: 1fr;
       }
 
       .mission-control {
+        grid-template-columns: 1fr;
+      }
+
+      .share-studio {
         grid-template-columns: 1fr;
       }
 
@@ -1885,7 +2168,8 @@
       .archive-controls,
       .official-links,
       .coverage-grid,
-      .mission-grid {
+      .mission-grid,
+      .share-pack-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1995,13 +2279,25 @@
           </div>
         </article>
 
+        <section class="share-studio" data-view="story" aria-label="Today's share pack">
+          <div class="share-studio-copy">
+            <span class="share-kicker">Today's Share Pack</span>
+            <h3>Send the right message to the right audience in seconds.</h3>
+            <p>
+              One verified story becomes a student spark, a teacher lab, and a parent note.
+              The full source library stays on the website; WhatsApp stays elegant.
+            </p>
+          </div>
+          <div class="share-pack-grid" id="sharePackGrid"></div>
+        </section>
+
         <section class="mission-control" data-view="story" aria-label="Olympiad intelligence coverage">
           <div class="mission-copy">
-            <span class="mission-kicker">Olympiad Intelligence Studio</span>
-            <h3>Stories should not feel like forwards. They should feel like a daily training ritual.</h3>
+            <span class="mission-kicker">Olympiad Atelier</span>
+            <h3>A premium daily ritual for proof, courage, and serious thinking.</h3>
             <p>
-              The Almanac now separates deep verified stories, official archives, teacher-ready classroom prompts,
-              and research streams for IMO, IOI, IPhO, IChO, IOAI, AIMO, and connected technology fields.
+              Deep verified stories, teacher-ready prompts, parent-friendly notes, and official archive sparks
+              stay separated so every share feels intentional, respectful, and useful.
             </p>
           </div>
           <div class="mission-grid" id="missionGrid"></div>
@@ -2082,7 +2378,7 @@
           <aside class="whatsapp-panel">
             <div class="message-toolbar">
               <div>
-                <h3>WhatsApp Ready</h3>
+                <h3>Share Studio</h3>
                 <p class="message-subtitle" id="audienceHint"></p>
               </div>
               <div class="message-actions">
@@ -2417,6 +2713,7 @@
       coachingNote: document.getElementById("coachingNote"),
       sourceList: document.getElementById("sourceList"),
       officialLinks: document.getElementById("officialLinks"),
+      sharePackGrid: document.getElementById("sharePackGrid"),
       missionGrid: document.getElementById("missionGrid"),
       coverageGrid: document.getElementById("coverageGrid"),
       qualityPill: document.getElementById("qualityPill"),
@@ -2701,6 +2998,64 @@
           `<p class="coverage-status"><strong>Status:</strong> ${stream.status}</p>`
         ].join("");
         els.coverageGrid.append(item);
+      });
+    }
+
+    function renderSharePack(profile) {
+      const packs = [
+        {
+          mode: "royal-short",
+          title: "Royal Short",
+          label: "Student broadcast",
+          copy: "A compact premium story for daily WhatsApp sharing."
+        },
+        {
+          mode: "teacher-lab",
+          title: "Teacher Lab",
+          label: "Classroom ready",
+          copy: "Opening line, class flow, board map, and reflection framing."
+        },
+        {
+          mode: "parent-note",
+          title: "Parent Note",
+          label: "Home encouragement",
+          copy: "A respectful note about patience, effort, and long-term thinking."
+        }
+      ];
+
+      els.sharePackGrid.innerHTML = "";
+      packs.forEach((pack) => {
+        const card = document.createElement("article");
+        const head = document.createElement("div");
+        const title = document.createElement("strong");
+        const label = document.createElement("span");
+        const copy = document.createElement("p");
+        const actions = document.createElement("div");
+        const copyButton = document.createElement("button");
+        const whatsappButton = document.createElement("button");
+
+        card.className = "share-card";
+        actions.className = "share-card-actions";
+        title.textContent = pack.title;
+        label.textContent = pack.label;
+        copy.textContent = pack.copy;
+        copyButton.type = "button";
+        copyButton.textContent = "Copy";
+        whatsappButton.type = "button";
+        whatsappButton.textContent = "WhatsApp";
+
+        copyButton.addEventListener("click", () => {
+          copyText(formatWhatsApp(profile, pack.mode), `${pack.title} message`);
+        });
+        whatsappButton.addEventListener("click", () => {
+          const text = encodeURIComponent(formatWhatsApp(profile, pack.mode));
+          window.open(`https://wa.me/?text=${text}`, "_blank", "noreferrer");
+        });
+
+        head.append(title, label);
+        actions.append(copyButton, whatsappButton);
+        card.append(head, copy, actions);
+        els.sharePackGrid.append(card);
       });
     }
 
@@ -3045,6 +3400,7 @@
       });
       renderMissionGrid();
       renderCoverageGrid();
+      renderSharePack(profile);
       updateAudienceControls();
       els.messageText.value = formatWhatsApp(profile, state.messageMode);
     }
