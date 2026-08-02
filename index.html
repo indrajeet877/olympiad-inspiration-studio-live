@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Olympiad Intelligence Almanac</title>
+  <title>The Olympiad Almanac</title>
   <meta name="description" content="A premium daily Olympiad inspiration almanac with verified WhatsApp-ready profiles for Indian students, parents, and teachers.">
   <meta name="build" content="lazy-archive-quality-sprint">
   <script src="data/olympiad-inspiration-profiles-expanded-20260630.js"></script>
@@ -2113,31 +2113,58 @@
 
     @media (max-width: 680px) {
       .topbar {
-        gap: 10px;
-        padding: 10px 16px 12px;
+        grid-template-columns: minmax(0, 1fr) minmax(132px, .8fr);
+        gap: 8px;
+        min-height: 0;
+        padding: 8px 12px;
       }
 
       .brandmark {
-        width: 38px;
-        height: 38px;
+        width: 32px;
+        height: 32px;
       }
 
       .brand h1 {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       .brand p {
-        font-size: 12px;
+        display: none;
       }
 
-      .view-switcher,
-      .top-actions {
+      .view-switcher {
+        grid-column: 2;
         width: 100%;
+        min-height: 34px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-self: stretch;
+      }
+
+      .top-actions {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 36px minmax(54px, .65fr) 36px minmax(118px, 1fr);
+        gap: 6px;
+        justify-content: stretch;
       }
 
       .mode-tab,
       .top-actions button {
-        min-height: 36px;
+        min-height: 32px;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .icon-btn {
+        width: 100%;
+      }
+
+      .today-command {
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .filter-toggle {
@@ -2150,7 +2177,6 @@
         display: none;
       }
 
-      .top-actions,
       .message-actions {
         width: 100%;
       }
@@ -2382,7 +2408,7 @@
                 <p class="message-subtitle" id="audienceHint"></p>
               </div>
               <div class="message-actions">
-                <div class="audience-switcher" role="tablist" aria-label="Message mode">
+                <div class="audience-switcher" id="messageModeTabs" role="tablist" aria-label="Message mode">
                   <button class="audience-tab" data-message-mode-button="royal-short" type="button" role="tab" aria-selected="false">Royal Short</button>
                   <button class="audience-tab active" data-message-mode-button="student-deep" type="button" role="tab" aria-selected="true">Student Deep</button>
                   <button class="audience-tab" data-message-mode-button="teacher-lab" type="button" role="tab" aria-selected="false">Teacher Lab</button>
@@ -2412,7 +2438,7 @@
                   </div>
                 </div>
                 <ul class="quality-ledger" id="qualityLedger"></ul>
-                <div class="teacher-toolkit" aria-label="Teacher toolkit copy buttons">
+                <div class="teacher-toolkit" id="teacherToolkit" aria-label="Teacher toolkit copy buttons">
                   <span class="teacher-toolkit-title">Teacher Toolkit</span>
                   <div class="teacher-toolkit-actions">
                     <button type="button" data-toolkit-copy="opening">Opening line</button>
@@ -3034,14 +3060,21 @@
         const copyButton = document.createElement("button");
         const whatsappButton = document.createElement("button");
 
-        card.className = "share-card";
+        card.className = "share-card share-pack-card";
+        card.dataset.shareMode = pack.mode;
         actions.className = "share-card-actions";
         title.textContent = pack.title;
         label.textContent = pack.label;
         copy.textContent = pack.copy;
         copyButton.type = "button";
+        copyButton.className = "share-action";
+        copyButton.dataset.shareAction = "copy";
+        copyButton.dataset.shareMode = pack.mode;
         copyButton.textContent = "Copy";
         whatsappButton.type = "button";
+        whatsappButton.className = "share-action";
+        whatsappButton.dataset.shareAction = "whatsapp";
+        whatsappButton.dataset.shareMode = pack.mode;
         whatsappButton.textContent = "WhatsApp";
 
         copyButton.addEventListener("click", () => {
