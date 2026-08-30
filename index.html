@@ -1878,6 +1878,54 @@
       color: #174f47;
     }
 
+    .stage-micro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .stage-micro-grid div {
+      min-height: 72px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(213, 169, 74, .25);
+      border-radius: 8px;
+      padding: 10px;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 246, .96), rgba(255, 244, 214, .72));
+      box-shadow: 0 10px 24px rgba(18, 16, 12, .055);
+    }
+
+    .stage-micro-grid strong {
+      color: #12100c;
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: .95;
+      overflow-wrap: anywhere;
+    }
+
+    .stage-micro-grid span {
+      color: #174f47;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .stage-route {
+      margin-top: 2px;
+      border: 1px solid rgba(23, 79, 71, .2);
+      border-radius: 8px;
+      padding: 11px 12px;
+      color: #143d37;
+      background: rgba(232, 241, 238, .78);
+      font-size: 12.5px;
+      line-height: 1.42;
+      font-weight: 820;
+    }
+
     .review-badge,
     .chip {
       border-radius: 8px;
@@ -2436,6 +2484,363 @@
       background: #fffdf6;
     }
 
+    /* Living atelier motion layer */
+    :root {
+      --cursor-x: 50vw;
+      --cursor-y: 50vh;
+      --tilt-x: 0deg;
+      --tilt-y: 0deg;
+    }
+
+    body {
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 76px 0 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(118deg, transparent 0 24%, rgba(213, 169, 74, .11) 24.08% 24.36%, transparent 24.44% 100%),
+        linear-gradient(63deg, transparent 0 42%, rgba(23, 79, 71, .08) 42.08% 42.34%, transparent 42.42% 100%),
+        repeating-linear-gradient(90deg, rgba(18, 16, 12, .028) 0 1px, transparent 1px 78px);
+      opacity: .82;
+    }
+
+    .cursor-lens {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 999;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(213, 169, 74, .62);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(calc(var(--cursor-x) - 23px), calc(var(--cursor-y) - 23px), 0) scale(.72);
+      transition: opacity .18s ease, transform .18s ease, border-color .18s ease, background .18s ease;
+      mix-blend-mode: multiply;
+    }
+
+    .cursor-lens::before,
+    .cursor-lens::after {
+      content: "";
+      position: absolute;
+      background: rgba(18, 16, 12, .42);
+    }
+
+    .cursor-lens::before {
+      left: 50%;
+      top: 7px;
+      bottom: 7px;
+      width: 1px;
+      transform: translateX(-50%);
+    }
+
+    .cursor-lens::after {
+      top: 50%;
+      left: 7px;
+      right: 7px;
+      height: 1px;
+      transform: translateY(-50%);
+    }
+
+    body.pointer-ready .cursor-lens {
+      opacity: .72;
+    }
+
+    body.pointer-active .cursor-lens {
+      border-color: rgba(23, 79, 71, .72);
+      background: rgba(255, 230, 162, .18);
+      transform: translate3d(calc(var(--cursor-x) - 23px), calc(var(--cursor-y) - 23px), 0) scale(1.12);
+    }
+
+    .app-shell {
+      position: relative;
+      perspective: 1600px;
+      isolation: isolate;
+    }
+
+    .topbar,
+    .stage,
+    .mission-control,
+    .share-studio,
+    .teacher-command-center,
+    .community-launchpad,
+    .forum-bridge,
+    .world-atlas,
+    .detail-panel,
+    .whatsapp-panel,
+    .archive-panel {
+      transform-style: preserve-3d;
+    }
+
+    .topbar {
+      box-shadow:
+        0 24px 70px rgba(18, 16, 12, .24),
+        inset 0 -1px 0 rgba(255, 230, 162, .2);
+    }
+
+    .brandmark,
+    .hero-avatar,
+    .avatar {
+      transform: translateZ(18px);
+    }
+
+    .stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, transparent 0 56%, rgba(255, 230, 162, .2) 56.1% 56.4%, transparent 56.5%),
+        repeating-linear-gradient(0deg, transparent 0 34px, rgba(18, 16, 12, .035) 35px 36px);
+      opacity: .5;
+      mix-blend-mode: multiply;
+    }
+
+    .motion-card,
+    .motion-link {
+      will-change: transform;
+    }
+
+    .motion-card {
+      position: relative;
+      overflow: hidden;
+      transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(0);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+    }
+
+    .motion-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      background: linear-gradient(112deg, transparent 0 42%, rgba(255, 255, 255, .32) 49%, transparent 56% 100%);
+      opacity: 0;
+      transform: translateX(-135%);
+      transition: opacity .28s ease, transform .68s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .motion-card:hover,
+    .motion-card.is-tilting {
+      border-color: rgba(213, 169, 74, .46);
+      box-shadow:
+        0 28px 74px rgba(18, 16, 12, .16),
+        0 6px 18px rgba(213, 169, 74, .08);
+    }
+
+    .motion-card:hover::after,
+    .motion-card.is-tilting::after {
+      opacity: .9;
+      transform: translateX(135%);
+    }
+
+    .motion-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .motion-link {
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+    }
+
+    .motion-link::before {
+      content: "";
+      position: absolute;
+      inset: auto 10px 7px;
+      height: 2px;
+      background: currentColor;
+      opacity: .55;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .26s ease;
+    }
+
+    .motion-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent, rgba(255, 255, 255, .32), transparent);
+      transform: translateX(-130%);
+      transition: transform .52s ease;
+    }
+
+    .motion-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(18, 16, 12, .14);
+    }
+
+    .motion-link:hover::before {
+      transform: scaleX(1);
+    }
+
+    .motion-link:hover::after {
+      transform: translateX(130%);
+    }
+
+    .motion-link[data-motion="gold"] {
+      border-color: rgba(213, 169, 74, .44);
+    }
+
+    .motion-link[data-motion="teal"]:hover {
+      color: #fffdf6 !important;
+      background: #174f47 !important;
+      border-color: #174f47 !important;
+    }
+
+    .motion-link[data-motion="ruby"]:hover {
+      color: #fffdf6 !important;
+      background: #7d2d3f !important;
+      border-color: #7d2d3f !important;
+    }
+
+    .motion-link[data-motion="blue"]:hover {
+      color: #fffdf6 !important;
+      background: #203c66 !important;
+      border-color: #203c66 !important;
+    }
+
+    .world-atlas {
+      display: grid;
+      gap: 16px;
+      border: 1px solid rgba(23, 20, 17, .13);
+      border-radius: 8px;
+      padding: clamp(18px, 2.4vw, 26px);
+      background:
+        linear-gradient(135deg, rgba(18, 16, 12, .96), rgba(32, 60, 102, .92) 54%, rgba(125, 45, 63, .86)),
+        #171411;
+      color: #fffdf6;
+      box-shadow: 0 30px 84px rgba(18, 16, 12, .18);
+    }
+
+    .world-atlas .command-head p {
+      color: rgba(255, 253, 246, .75);
+    }
+
+    .world-atlas .command-badge {
+      border-color: rgba(255, 230, 162, .26);
+      background: rgba(255, 253, 246, .08);
+    }
+
+    .world-atlas .command-badge strong {
+      color: #ffe6a2;
+    }
+
+    .world-atlas .command-badge span {
+      color: rgba(255, 253, 246, .7);
+    }
+
+    .atlas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .atlas-card {
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      min-height: 232px;
+      border: 1px solid rgba(255, 230, 162, .22);
+      border-radius: 8px;
+      padding: 14px;
+      background:
+        linear-gradient(135deg, rgba(255, 253, 246, .09), rgba(255, 253, 246, .035)),
+        rgba(18, 16, 12, .18);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+    }
+
+    .atlas-card h4 {
+      margin: 0;
+      color: #fffdf6;
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.08;
+    }
+
+    .atlas-card p {
+      margin: 0;
+      color: rgba(255, 253, 246, .72);
+      font-size: 12.5px;
+      font-weight: 720;
+      line-height: 1.44;
+    }
+
+    .atlas-track {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: #ffe6a2;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .atlas-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .atlas-actions a,
+    .atlas-actions button {
+      min-height: 34px;
+      border: 1px solid rgba(255, 230, 162, .28);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #fffdf6;
+      background: rgba(255, 253, 246, .08);
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .atlas-actions button {
+      color: #12100c;
+      background: linear-gradient(135deg, #ffe6a2, #d5a94a);
+      border-color: rgba(255, 230, 162, .7);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+
+      .cursor-lens {
+        display: none;
+      }
+
+      .motion-card,
+      .motion-link {
+        transform: none !important;
+      }
+    }
+
+    @media (pointer: coarse) {
+      .cursor-lens {
+        display: none;
+      }
+    }
+
     @media (max-width: 1160px) {
       .content-grid {
         grid-template-columns: 1fr;
@@ -2451,6 +2856,7 @@
 
       .feature-grid,
       .resource-link-grid,
+      .atlas-grid,
       .bridge-map,
       .forum-grid,
       .pinpoint-grid {
@@ -2513,19 +2919,25 @@
 
     @media (max-width: 680px) {
       .topbar {
-        grid-template-columns: minmax(0, 1fr) minmax(132px, .8fr);
+        grid-template-columns: minmax(0, 1fr);
         gap: 8px;
         min-height: 0;
         padding: 8px 12px;
       }
 
+      .brand {
+        min-width: 0;
+      }
+
       .brandmark {
         width: 32px;
         height: 32px;
+        flex: 0 0 auto;
       }
 
       .brand h1 {
         font-size: 18px;
+        overflow-wrap: anywhere;
       }
 
       .brand p {
@@ -2533,7 +2945,7 @@
       }
 
       .view-switcher {
-        grid-column: 2;
+        grid-column: 1;
         width: 100%;
         min-height: 34px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2544,9 +2956,13 @@
         grid-column: 1 / -1;
         width: 100%;
         display: grid;
-        grid-template-columns: 36px minmax(54px, .65fr) 36px minmax(118px, 1fr);
+        grid-template-columns: 40px minmax(0, 1fr) 40px;
         gap: 6px;
         justify-content: stretch;
+      }
+
+      .top-actions .primary {
+        grid-column: 1 / -1;
       }
 
       .mode-tab,
@@ -2555,7 +2971,8 @@
         padding-left: 8px;
         padding-right: 8px;
         font-size: 12px;
-        white-space: nowrap;
+        white-space: normal;
+        line-height: 1.15;
       }
 
       .icon-btn {
@@ -2586,6 +3003,51 @@
         flex: 1 1 auto;
       }
 
+      .share-card-actions,
+      .command-actions,
+      .pinpoint-actions,
+      .atlas-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .chips {
+        max-width: 100%;
+      }
+
+      .chip,
+      .review-badge {
+        white-space: normal;
+        line-height: 1.2;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      .stage,
+      .share-studio,
+      .mission-control,
+      .world-atlas,
+      .teacher-command-center,
+      .community-launchpad,
+      .forum-bridge,
+      .detail-panel,
+      .whatsapp-panel {
+        max-width: 100%;
+      }
+
+      .stage-micro-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stage-micro-grid div:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .stage-micro-grid strong {
+        font-size: 20px;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
       .deep-grid {
         grid-template-columns: 1fr;
       }
@@ -2598,6 +3060,7 @@
       .share-pack-grid,
       .feature-grid,
       .resource-link-grid,
+      .atlas-grid,
       .bridge-map,
       .forum-grid,
       .pinpoint-grid {
@@ -2649,6 +3112,7 @@
   </style>
 </head>
 <body data-mode="story">
+  <div class="cursor-lens" aria-hidden="true"></div>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
@@ -2715,6 +3179,21 @@
               <p id="classroomAngle"></p>
               <h3>Today's Action</h3>
               <p id="dailyAction"></p>
+              <div class="stage-micro-grid" aria-label="Daily quality markers">
+                <div>
+                  <strong id="heroProofCount">0</strong>
+                  <span>proofs</span>
+                </div>
+                <div>
+                  <strong id="heroSourceCount">0</strong>
+                  <span>sources</span>
+                </div>
+                <div>
+                  <strong id="heroLens">Depth</strong>
+                  <span>lens</span>
+                </div>
+              </div>
+              <div class="stage-route" id="heroRoute"></div>
             </aside>
           </div>
         </article>
@@ -2741,6 +3220,24 @@
             </p>
           </div>
           <div class="mission-grid" id="missionGrid"></div>
+        </section>
+
+        <section class="world-atlas" data-view="story" aria-label="World Olympiad atlas">
+          <div class="command-head">
+            <div>
+              <span class="command-kicker">World Olympiad Atlas</span>
+              <h3>One premium map of global Olympiad doors for teachers, students, and parents.</h3>
+              <p>
+                This layer separates official pathways from community discussion. Teachers can open the right door,
+                copy a short route, and guide students toward serious preparation across subjects.
+              </p>
+            </div>
+            <div class="command-badge">
+              <strong id="worldAtlasCount">0</strong>
+              <span>global doors</span>
+            </div>
+          </div>
+          <div class="atlas-grid" id="worldAtlasGrid"></div>
         </section>
 
         <section class="teacher-command-center" data-view="story" aria-label="Teacher command center">
@@ -3092,6 +3589,193 @@
         label: "Asia AIMO Platform",
         note: "Asia International Mathematical Olympiad learning and event platform.",
         url: "https://aimo.world/"
+      }
+    ];
+
+    const WORLD_OLYMPIAD_ATLAS = [
+      {
+        track: "Math",
+        code: "IMO",
+        title: "International Mathematical Olympiad",
+        note: "The oldest and most visible international science Olympiad; use for official results, problems, countries, and proof links.",
+        teacherUse: "Best for proof writing, geometry, number theory, combinatorics, inequalities, and long-form mathematical courage.",
+        url: "https://www.imo-official.org/"
+      },
+      {
+        track: "Math",
+        code: "EGMO",
+        title: "European Girls' Mathematical Olympiad",
+        note: "A major global mathematics platform encouraging girls to participate deeply in national and international math competitions.",
+        teacherUse: "Best for showing girls that serious mathematics has a visible, respected international pathway.",
+        url: "https://www.egmo.org/"
+      },
+      {
+        track: "Math",
+        code: "APMO",
+        title: "Asian Pacific Mathematical Olympiad",
+        note: "Pacific-Rim mathematics competition with a 5-problem, 4-hour format and a long archive of regional math culture.",
+        teacherUse: "Best for bridge practice between national olympiads and IMO-level proof stamina.",
+        url: "https://www.apmo-official.org/"
+      },
+      {
+        track: "Coding",
+        code: "IOI",
+        title: "International Olympiad in Informatics",
+        note: "The global informatics Olympiad for algorithms, programming, data structures, and computational problem solving.",
+        teacherUse: "Best for connecting IOI-style thinking with AI engineering, software systems, and precise debugging.",
+        url: "https://ioinformatics.org/"
+      },
+      {
+        track: "Coding",
+        code: "IOI Stats",
+        title: "IOI Contestant Records",
+        note: "Searchable informatics records for contestant, country, task, and medal verification.",
+        teacherUse: "Best for verifying IOI claims before converting a coding profile into motivation.",
+        url: "https://stats.ioinformatics.org/"
+      },
+      {
+        track: "Coding",
+        code: "EGOI",
+        title: "European Girls' Olympiad in Informatics",
+        note: "International programming competition for young women, inspired by EGMO and similar in spirit to IOI.",
+        teacherUse: "Best for encouraging girls in algorithms, programming contests, and computing confidence.",
+        url: "https://egoi.org/"
+      },
+      {
+        track: "Coding",
+        code: "APIO",
+        title: "Asia-Pacific Informatics Olympiad",
+        note: "Regional IOI-style informatics competition; use carefully because national pages often host current-year details.",
+        teacherUse: "Best for advanced algorithmic practice and regional informatics motivation.",
+        url: "https://ioimalaysia.org/competition/apio/"
+      },
+      {
+        track: "Physics",
+        code: "IPhO",
+        title: "International Physics Olympiad",
+        note: "Global physics Olympiad covering theory, experimental thinking, modelling, and mathematical physics.",
+        teacherUse: "Best for connecting equations with diagrams, assumptions, experiments, and modelling discipline.",
+        url: "https://www.ipho-new.org/"
+      },
+      {
+        track: "Physics",
+        code: "IYPT",
+        title: "International Young Physicists' Tournament",
+        note: "Team-based physics tournament where students research, present, and defend open-ended physics problems.",
+        teacherUse: "Best for lab culture, debate, experimental design, and scientific communication.",
+        url: "https://iypt.org/"
+      },
+      {
+        track: "Astronomy",
+        code: "IOAA",
+        title: "International Olympiad on Astronomy and Astrophysics",
+        note: "Astronomy and astrophysics Olympiad with theory, data analysis, observation, and team components.",
+        teacherUse: "Best for sky geometry, data interpretation, physics modelling, and curiosity beyond the textbook.",
+        url: "https://ioaastrophysics.org/"
+      },
+      {
+        track: "Chemistry",
+        code: "IChO",
+        title: "International Chemistry Olympiad",
+        note: "Official chemistry Olympiad ecosystem for regulations, country participation, results, and history.",
+        teacherUse: "Best for stoichiometric care, mechanism thinking, lab reasoning, and experimental maturity.",
+        url: "https://www.ichosc.org/"
+      },
+      {
+        track: "Chemistry",
+        code: "IChO Problems",
+        title: "IChO Competition Problems",
+        note: "Problem collections from International Chemistry Olympiads, including theoretical and practical problem history.",
+        teacherUse: "Best for building past-paper practice and discussing how chemistry questions become investigations.",
+        url: "https://icho.sk/competition-problems/"
+      },
+      {
+        track: "Biology",
+        code: "IBO",
+        title: "International Biology Olympiad",
+        note: "Global biology Olympiad; official site includes participation, results, reports, papers, and educational material.",
+        teacherUse: "Best for biological insight, practical skills, data interpretation, and moving beyond memorization.",
+        url: "https://www.ibo-info.org/"
+      },
+      {
+        track: "Junior Science",
+        code: "IJSO",
+        title: "International Junior Science Olympiad",
+        note: "International natural sciences competition for younger students, combining physics, chemistry, and biology.",
+        teacherUse: "Best for early-stage students who need a scientific thinking ladder before senior Olympiads.",
+        url: "https://ijsoweb.org/"
+      },
+      {
+        track: "Earth Science",
+        code: "IESO",
+        title: "International Earth Science Olympiad",
+        note: "Earth science Olympiad connected with geology, meteorology, oceanography, environmental science, and terrestrial astronomy.",
+        teacherUse: "Best for showing that observation, data, field reasoning, and systems thinking are also Olympiad skills.",
+        url: "https://www.igeoscied.org/activities/ieso/"
+      },
+      {
+        track: "Linguistics",
+        code: "IOL",
+        title: "International Linguistics Olympiad",
+        note: "Puzzle-based linguistics Olympiad with official problems by year, sample puzzles, and country information.",
+        teacherUse: "Best for pattern finding, grammar logic, unknown systems, and students who enjoy code-breaking style reasoning.",
+        url: "https://ioling.org/"
+      },
+      {
+        track: "Geography",
+        code: "iGeo",
+        title: "International Geography Olympiad",
+        note: "Global geography competition for 16 to 19-year-old students, including document libraries for past results and questions.",
+        teacherUse: "Best for maps, data, fieldwork, human geography, and explaining the world through evidence.",
+        url: "https://geoolympiad.org/"
+      },
+      {
+        track: "Philosophy",
+        code: "IPO",
+        title: "International Philosophy Olympiad",
+        note: "Essay-based philosophy Olympiad for high-school students, focused on argument, coherence, and originality.",
+        teacherUse: "Best for students who need to learn how to think, write, argue, and respect opposing ideas.",
+        url: "https://www.philosophy-olympiad.org/"
+      },
+      {
+        track: "Economics",
+        code: "IEO",
+        title: "International Economics Olympiad",
+        note: "Annual competition for high-school students in economics, finance, and business case analysis.",
+        teacherUse: "Best for quantitative decision-making, financial literacy, policy reasoning, and real-world case thinking.",
+        url: "https://ieo-official.org/"
+      },
+      {
+        track: "AI",
+        code: "IOAI",
+        title: "International Olympiad in Artificial Intelligence",
+        note: "Official AI Olympiad for high-school students with editions, results, task information, and AI model track context.",
+        teacherUse: "Best for connecting algorithms, data, evaluation, model reasoning, and responsible AI curiosity.",
+        url: "https://ioai-official.org/"
+      },
+      {
+        track: "AI + Math",
+        code: "AIMO",
+        title: "AI Mathematical Olympiad Prize",
+        note: "AIMO connects IMO-level mathematical reasoning with modern AI systems and evaluation.",
+        teacherUse: "Best for showing why proof, edge cases, and careful verification matter in the age of AI.",
+        url: "https://aimoprize.com/"
+      },
+      {
+        track: "India",
+        code: "HBCSE",
+        title: "Indian Olympiad Pathway",
+        note: "Official Indian pathway hub for mathematics, sciences, astronomy, and junior science Olympiads.",
+        teacherUse: "Best for explaining Indian stages and keeping parents aligned with official selection pathways.",
+        url: "https://olympiads.hbcse.tifr.res.in/"
+      },
+      {
+        track: "India",
+        code: "IOQM",
+        title: "Indian Olympiad Qualifier in Mathematics",
+        note: "The first-stage mathematics qualifier information for Indian students starting the Olympiad ladder.",
+        teacherUse: "Best for students beginning the IOQM -> RMO -> INMO -> camp -> IMO pathway.",
+        url: "https://ioqm.mtai.org.in/"
       }
     ];
 
@@ -3647,6 +4331,10 @@
       reviewBadges: document.getElementById("reviewBadges"),
       classroomAngle: document.getElementById("classroomAngle"),
       dailyAction: document.getElementById("dailyAction"),
+      heroProofCount: document.getElementById("heroProofCount"),
+      heroSourceCount: document.getElementById("heroSourceCount"),
+      heroLens: document.getElementById("heroLens"),
+      heroRoute: document.getElementById("heroRoute"),
       sourceCount: document.getElementById("sourceCount"),
       whyPopular: document.getElementById("whyPopular"),
       olympiad: document.getElementById("olympiad"),
@@ -3660,6 +4348,8 @@
       officialLinks: document.getElementById("officialLinks"),
       sharePackGrid: document.getElementById("sharePackGrid"),
       teacherFeatureGrid: document.getElementById("teacherFeatureGrid"),
+      worldAtlasGrid: document.getElementById("worldAtlasGrid"),
+      worldAtlasCount: document.getElementById("worldAtlasCount"),
       communityResourceGrid: document.getElementById("communityResourceGrid"),
       resourceHubCount: document.getElementById("resourceHubCount"),
       forumBridgeCount: document.getElementById("forumBridgeCount"),
@@ -3925,7 +4615,7 @@
       const metrics = [
         [`${published}/${profiles.length}`, "Published stories", `${needsReview} profiles are searchable but held out of daily rotation.`],
         [formatNumber(totals.people || ARCHIVE_SUMMARY.people), "Archive sparks", "Search official IMO people and copy verified motivation sparks."],
-        [OFFICIAL_OLYMPIAD_RESOURCES.length + COMMUNITY_RESOURCES.length + FORUM_PATTERNS.length + PINPOINT_ROUTES.length, "Resource streams", "Official proof, problem archives, India pathway, community rooms, and pinpoint routes."],
+        [OFFICIAL_OLYMPIAD_RESOURCES.length + COMMUNITY_RESOURCES.length + WORLD_OLYMPIAD_ATLAS.length + FORUM_PATTERNS.length + PINPOINT_ROUTES.length, "Resource streams", "Official proof, world Olympiad doors, community rooms, and pinpoint routes."],
         [proofReceipts, "Proof receipts", `${sources} total profile source links kept inside the studio.`]
       ];
 
@@ -4014,6 +4704,45 @@
         actions.append(copyButton, whatsappButton);
         card.append(head, copy, actions);
         els.sharePackGrid.append(card);
+      });
+    }
+
+    function renderWorldAtlas(profile) {
+      els.worldAtlasCount.textContent = WORLD_OLYMPIAD_ATLAS.length;
+      els.worldAtlasGrid.innerHTML = "";
+      WORLD_OLYMPIAD_ATLAS.forEach((door, index) => {
+        const card = document.createElement("article");
+        const track = document.createElement("div");
+        const title = document.createElement("h4");
+        const note = document.createElement("p");
+        const use = document.createElement("p");
+        const actions = document.createElement("div");
+        const link = document.createElement("a");
+        const copyButton = document.createElement("button");
+
+        card.className = "atlas-card";
+        card.dataset.atlasTrack = door.track;
+        track.className = "atlas-track";
+        track.innerHTML = `<span>${door.track}</span><span>${door.code}</span>`;
+        title.textContent = door.title;
+        note.textContent = door.note;
+        use.innerHTML = `<strong>Teacher use:</strong> ${door.teacherUse}`;
+        actions.className = "atlas-actions";
+        link.href = door.url;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.textContent = "Open";
+        link.dataset.motion = ["gold", "teal", "blue", "ruby"][index % 4];
+        copyButton.type = "button";
+        copyButton.textContent = "Copy route";
+        copyButton.dataset.motion = ["teal", "blue", "ruby", "gold"][index % 4];
+        copyButton.addEventListener("click", () => {
+          copyText(worldAtlasText(door, profile), `${door.code} route`);
+        });
+
+        actions.append(link, copyButton);
+        card.append(track, title, note, use, actions);
+        els.worldAtlasGrid.append(card);
       });
     }
 
@@ -4427,6 +5156,7 @@
       els.archiveNote.textContent = filtered.length > limit
         ? `Showing first ${formatNumber(limit)} of ${formatNumber(filtered.length)} matches. Search or filter for a specific student-inspiration example. ${medalistArchive.note}`
         : medalistArchive.note;
+      refreshMotionTargets();
     }
 
     function renderProfile() {
@@ -4457,6 +5187,10 @@
       renderReviewBadges(profile);
       els.classroomAngle.textContent = profile.indiaConnect?.[0] || profile.headline;
       els.dailyAction.textContent = profile.practice;
+      els.heroProofCount.textContent = getProofLinks(profile).length;
+      els.heroSourceCount.textContent = profile.sources.length;
+      els.heroLens.textContent = thinkingLens(profile);
+      els.heroRoute.textContent = `${firstName(profile)}'s story is a ${profile.domain} route: verified proof, one habit, one action, and one reflection for today's class.`;
       els.sourceCount.textContent = `${profile.sources.length} sources`;
       els.qualityPill.textContent = profileStatus(profile) === "published" ? "Published" : "Needs review";
 
@@ -4519,9 +5253,11 @@
       renderMissionGrid();
       renderCoverageGrid();
       renderSharePack(profile);
+      renderWorldAtlas(profile);
       renderTeacherCommandCenter(profile);
       renderCommunityHub();
       renderForumBridge(profile);
+      refreshMotionTargets();
       updateAudienceControls();
       els.messageText.value = formatWhatsApp(profile, state.messageMode);
     }
@@ -4717,6 +5453,15 @@
         `*${index + 1}. ${resource.tag} - ${resource.label}*`,
         `${resource.note}:`,
         resource.url
+      ].join("\n")).join("\n\n");
+    }
+
+    function worldAtlasLines(limit = Infinity) {
+      return WORLD_OLYMPIAD_ATLAS.slice(0, limit).map((door, index) => [
+        `*${index + 1}. ${door.code} - ${door.title}*`,
+        `Track: ${door.track}`,
+        `Teacher use: ${door.teacherUse}`,
+        door.url
       ].join("\n")).join("\n\n");
     }
 
@@ -5307,6 +6052,41 @@
       ].join("\n");
     }
 
+    function worldAtlasText(door, profile) {
+      const icons = emojiPalette(profile);
+      return [
+        styleFrame(`🌍 *${fancyTitle("WORLD OLYMPIAD ATLAS")}*`, `*${door.code} - ${door.title}*`),
+        "",
+        `📅 *${formatIndiaDate()}*`,
+        "",
+        `👤 *Today's Almanac story:* ${profile.name}`,
+        `🧠 *Habit lens:* ${thinkingLens(profile)} under pressure`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🚪", "Global Door"),
+        "",
+        `${icons[0]} *Track:* ${door.track}`,
+        `${icons[1]} *What it is:* ${door.note}`,
+        "",
+        sectionTitle("👩‍🏫", "Teacher Use"),
+        "",
+        `${icons[2]} ${door.teacherUse}`,
+        "",
+        sectionTitle("✍️", "Student Habit"),
+        "",
+        `${icons[3]} Before opening any official page or community discussion, students should write one honest attempt and one exact doubt.`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🔗", "Direct Link"),
+        "",
+        door.url,
+        "",
+        styleFrame("✅ *Use this as a doorway, not a shortcut.*\n\n*The real preparation still happens on the page where the student thinks.*")
+      ].join("\n");
+    }
+
     function forumPatternText(pattern, profile) {
       const icons = emojiPalette(profile);
       return [
@@ -5437,6 +6217,121 @@
         document.execCommand("copy");
         showToast(`${label} copied`);
       }
+    }
+
+    function refreshMotionTargets() {
+      const cardSelector = [
+        ".stage",
+        ".stage-card",
+        ".stage-micro-grid div",
+        ".stage-route",
+        ".mission-control",
+        ".mission-stat",
+        ".share-card",
+        ".world-atlas",
+        ".atlas-card",
+        ".teacher-command-center",
+        ".teacher-feature-card",
+        ".community-launchpad",
+        ".resource-card",
+        ".forum-bridge",
+        ".bridge-step",
+        ".forum-card",
+        ".pinpoint-card",
+        ".detail-panel",
+        ".info-card",
+        ".timeline",
+        ".proof-panel",
+        ".sources",
+        ".resource-panel",
+        ".coverage-panel",
+        ".coverage-card",
+        ".official-link",
+        ".whatsapp-panel",
+        ".message-spark",
+        ".archive-panel",
+        ".archive-stats .stat"
+      ].join(",");
+      const motionKinds = ["gold", "teal", "blue", "ruby"];
+
+      document.querySelectorAll(cardSelector).forEach((element, index) => {
+        element.classList.add("motion-card");
+        element.dataset.motion = element.dataset.motion || motionKinds[index % motionKinds.length];
+      });
+
+      document.querySelectorAll("a, button").forEach((element, index) => {
+        element.classList.add("motion-link");
+        element.dataset.motion = element.dataset.motion || motionKinds[index % motionKinds.length];
+      });
+    }
+
+    function setupMotionLayer() {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const precisePointer = window.matchMedia("(pointer: fine)").matches;
+      if (reduceMotion || !precisePointer) return;
+
+      let motionFrame = 0;
+      let lastTiltTarget = null;
+      let lastPointerEvent = null;
+      const root = document.documentElement;
+
+      const resetTilt = (target) => {
+        if (!target) return;
+        target.classList.remove("is-tilting");
+        target.style.removeProperty("--tilt-x");
+        target.style.removeProperty("--tilt-y");
+      };
+
+      const paintMotion = () => {
+        const event = lastPointerEvent;
+        motionFrame = 0;
+        if (!event) return;
+        root.style.setProperty("--cursor-x", `${event.clientX}px`);
+        root.style.setProperty("--cursor-y", `${event.clientY}px`);
+        document.body.classList.add("pointer-ready");
+
+        const target = event.target.closest?.(".motion-card");
+        if (!target) {
+          resetTilt(lastTiltTarget);
+          lastTiltTarget = null;
+          return;
+        }
+
+        if (lastTiltTarget && lastTiltTarget !== target) resetTilt(lastTiltTarget);
+        lastTiltTarget = target;
+        const rect = target.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        const intensity = target.classList.contains("stage") || target.classList.contains("world-atlas") ? 4 : 6;
+        target.style.setProperty("--tilt-x", `${(-y * intensity).toFixed(2)}deg`);
+        target.style.setProperty("--tilt-y", `${(x * intensity).toFixed(2)}deg`);
+        target.classList.add("is-tilting");
+      };
+
+      document.addEventListener("pointermove", (event) => {
+        lastPointerEvent = event;
+        if (!motionFrame) motionFrame = window.requestAnimationFrame(paintMotion);
+      }, { passive: true });
+
+      document.addEventListener("pointerover", (event) => {
+        if (event.target.closest?.(".motion-link")) document.body.classList.add("pointer-active");
+      }, { passive: true });
+
+      document.addEventListener("pointerout", (event) => {
+        if (event.target.closest?.(".motion-link") && !event.relatedTarget?.closest?.(".motion-link")) {
+          document.body.classList.remove("pointer-active");
+        }
+        const fromCard = event.target.closest?.(".motion-card");
+        const toCard = event.relatedTarget?.closest?.(".motion-card");
+        if (fromCard && fromCard !== toCard) resetTilt(fromCard);
+      }, { passive: true });
+
+      document.addEventListener("pointerleave", () => {
+        document.body.classList.remove("pointer-ready", "pointer-active");
+        resetTilt(lastTiltTarget);
+        lastTiltTarget = null;
+      }, { passive: true });
     }
 
     function showToast(message) {
@@ -5593,7 +6488,7 @@
     els.copyTopBtn.addEventListener("click", () => copyText(els.messageText.value, "WhatsApp message"));
     els.copyMessageBtn.addEventListener("click", () => copyText(els.messageText.value, "WhatsApp message"));
     els.copySourcesBtn.addEventListener("click", () => {
-      copyText(`${sourceLines(activeProfile())}\n\n${officialResourceLines()}`, "Official links");
+      copyText(`${sourceLines(activeProfile())}\n\n${officialResourceLines()}\n\n${worldAtlasLines()}`, "Official links and world atlas");
     });
     els.toolkitButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -5608,6 +6503,7 @@
     initArchiveFilters();
     applyMobileFilterState();
     window.addEventListener("resize", applyMobileFilterState);
+    setupMotionLayer();
     render();
   </script>
 </body>
