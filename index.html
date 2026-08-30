@@ -2217,6 +2217,176 @@
       background: #fff4d6;
     }
 
+    .forum-bridge {
+      display: grid;
+      gap: 16px;
+      border: 1px solid rgba(23, 20, 17, .13);
+      border-radius: 8px;
+      padding: clamp(18px, 2.4vw, 26px);
+      background:
+        linear-gradient(135deg, #fffdf6, #f3ead8 52%, #e8f0ec),
+        #fffdf6;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .bridge-subhead {
+      display: grid;
+      gap: 4px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(23, 20, 17, .12);
+    }
+
+    .bridge-subhead:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .bridge-subhead span {
+      color: #8a631c;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .bridge-subhead h4 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(21px, 2vw, 30px);
+      line-height: 1.05;
+    }
+
+    .bridge-subhead p {
+      max-width: 880px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 720;
+    }
+
+    .bridge-map {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      counter-reset: bridge-step;
+    }
+
+    .bridge-step {
+      position: relative;
+      min-height: 118px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255, 253, 247, .82);
+    }
+
+    .bridge-step::before {
+      counter-increment: bridge-step;
+      content: counter(bridge-step, decimal-leading-zero);
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      color: #12100c;
+      background: linear-gradient(135deg, #ffe6a2, #d5a94a);
+      font-family: var(--serif);
+      font-weight: 900;
+    }
+
+    .bridge-step strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.08;
+    }
+
+    .bridge-step span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 720;
+    }
+
+    .forum-grid,
+    .pinpoint-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .forum-card,
+    .pinpoint-card {
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      min-height: 218px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fffdf7;
+    }
+
+    .forum-card {
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .96), rgba(251, 242, 225, .9));
+    }
+
+    .forum-card h4,
+    .pinpoint-card h4 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.12;
+    }
+
+    .forum-card p,
+    .pinpoint-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.44;
+      font-weight: 720;
+    }
+
+    .forum-card .resource-type,
+    .pinpoint-card .resource-type {
+      color: #6a4a13;
+    }
+
+    .pinpoint-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .pinpoint-actions a,
+    .pinpoint-actions button {
+      min-height: 34px;
+      border: 1px solid rgba(156, 111, 37, .28);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #12100c;
+      background: #fff4d6;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .pinpoint-actions button {
+      color: #fffdf6;
+      background: #171411;
+      border-color: #171411;
+    }
+
     .mission-control {
       background:
         linear-gradient(135deg, rgba(255, 253, 246, .98), rgba(238, 246, 243, .95)),
@@ -2280,7 +2450,10 @@
       }
 
       .feature-grid,
-      .resource-link-grid {
+      .resource-link-grid,
+      .bridge-map,
+      .forum-grid,
+      .pinpoint-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -2424,7 +2597,10 @@
       .mission-grid,
       .share-pack-grid,
       .feature-grid,
-      .resource-link-grid {
+      .resource-link-grid,
+      .bridge-map,
+      .forum-grid,
+      .pinpoint-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2603,6 +2779,42 @@
           <div class="resource-link-grid" id="communityResourceGrid"></div>
         </section>
 
+        <section class="forum-bridge" data-view="story" aria-label="Global forum bridge and pinpoint desk">
+          <div class="command-head">
+            <div>
+              <span class="command-kicker">Global Forum Bridge</span>
+              <h3>Break the gap between student effort, teacher guidance, and world-class problem culture.</h3>
+              <p>
+                Official archives provide trust. Communities provide discussion culture. The bridge below helps
+                teachers convert both into a classroom workflow: attempt first, ask precisely, discuss respectfully,
+                and bring the learning back to the notebook.
+              </p>
+            </div>
+            <div class="command-badge">
+              <strong id="forumBridgeCount">0</strong>
+              <span>bridge tools</span>
+            </div>
+          </div>
+          <div class="bridge-subhead">
+            <span>Layer 01</span>
+            <h4>The learning bridge</h4>
+            <p>Use this sequence before sending students into any forum, archive, or solution thread.</p>
+          </div>
+          <div class="bridge-map" id="bridgeMap"></div>
+          <div class="bridge-subhead">
+            <span>Layer 02</span>
+            <h4>Global discussion patterns</h4>
+            <p>What teachers can borrow from serious online math communities without losing classroom control.</p>
+          </div>
+          <div class="forum-grid" id="forumPatternGrid"></div>
+          <div class="bridge-subhead">
+            <span>Layer 03</span>
+            <h4>Pinpoint desk</h4>
+            <p>Direct routes for proof, problems, Indian pathway, coding, AI, and high-quality doubt formation.</p>
+          </div>
+          <div class="pinpoint-grid" id="pinpointGrid"></div>
+        </section>
+
         <section class="content-grid" data-view="story">
           <article class="detail-panel">
             <div class="section-head">
@@ -2670,7 +2882,8 @@
               <div class="coverage-grid" id="coverageGrid"></div>
               <p class="quality">
                 Editorial rule: add a person only when the Olympiad claim and public achievement can be supported by
-                credible links. No negative coaching note is shown when a coaching-specific source is missing.
+                credible links. Coaching mentions appear only when verified; otherwise the story stays student-centered
+                and respectful to every teacher, institute, and learner.
               </p>
             </section>
           </article>
@@ -3205,6 +3418,153 @@
       }
     ];
 
+    const BRIDGE_STEPS = [
+      {
+        title: "Attempt privately",
+        note: "The student writes what was tried, where it failed, and one next test before asking."
+      },
+      {
+        title: "Ask precisely",
+        note: "The doubt includes source, topic, attempted idea, stuck line, and exact question."
+      },
+      {
+        title: "Teacher triage",
+        note: "The teacher decides: hint, peer discussion, full solution, or a new stepping-stone problem."
+      },
+      {
+        title: "Compare globally",
+        note: "Use AoPS, StackExchange, Discord, or archives only after the student has a real attempt."
+      },
+      {
+        title: "Bring learning back",
+        note: "The student records one method, one mistake, one improved line, and one follow-up problem."
+      }
+    ];
+
+    const FORUM_PATTERNS = [
+      {
+        icon: "🧭",
+        type: "Discussion culture",
+        title: "AoPS-style solution comparison",
+        lesson: "Students should not only read an answer. They compare methods, notice why one idea is cleaner, and rewrite their own solution.",
+        teacherUse: "Give the class one solved problem, then ask: which solution was shortest, which was most natural, and which was easiest to explain?",
+        studentUse: "Attempt first, then read two methods and write one line on what changed in your thinking.",
+        url: "https://artofproblemsolving.com/community"
+      },
+      {
+        icon: "✍️",
+        type: "Question quality",
+        title: "StackExchange-style precise doubts",
+        lesson: "A good doubt is not 'I did not understand'. It names the exact line, hidden condition, failed idea, and requested clarification.",
+        teacherUse: "Before opening any forum, make students fill a five-line doubt card. This alone improves mathematical maturity.",
+        studentUse: "Write the source, topic, what you tried, where it broke, and the exact question.",
+        url: "https://math.meta.stackexchange.com/questions/9959/how-to-ask-a-good-question"
+      },
+      {
+        icon: "🔥",
+        type: "Daily rhythm",
+        title: "MO Discord PoTD and contest rhythm",
+        lesson: "Strong communities keep a steady rhythm: problem-of-the-day, difficulty tags, live solving, contests, and post-solution discussion.",
+        teacherUse: "Create your own small class PoTD ritual: one problem, one hint window, one student explanation, one reflection.",
+        studentUse: "Do not chase ten problems. Stay with one serious problem until your attempt becomes readable.",
+        url: "https://github.com/Mathematical-Olympiads-Discord-Server/files"
+      },
+      {
+        icon: "🔐",
+        type: "Trust layer",
+        title: "Official archive proof first",
+        lesson: "Motivation becomes stronger when claims are verifiable. Use official result pages before building a story around a person.",
+        teacherUse: "Open the proof link once, then share only the necessary proof links in WhatsApp.",
+        studentUse: "Notice that real achievement can be checked. This builds respect for evidence, not rumors.",
+        url: "https://www.imo-official.org/results/"
+      },
+      {
+        icon: "👥",
+        type: "Teacher-to-teacher bridge",
+        title: "Local mentor circle",
+        lesson: "Teachers can exchange one problem, one misconception, one hint sequence, and one student reflection every week.",
+        teacherUse: "Share a two-minute post in your teacher group: today's topic, common mistake, best hint, and a useful follow-up problem.",
+        studentUse: "Students benefit when teachers coordinate difficulty ladders instead of sending random hard problems.",
+        url: "https://olympiads.hbcse.tifr.res.in/about-olympiads/stages/mathematical-olympiad/"
+      },
+      {
+        icon: "🏠",
+        type: "Parent bridge",
+        title: "Translate struggle into habits",
+        lesson: "Parents need language for invisible growth: attempt quality, proof clarity, correction, patience, and return after failure.",
+        teacherUse: "Send parent notes after hard tests so families encourage learning, not only marks.",
+        studentUse: "When parents ask about marks, also show them what became clearer in your notebook.",
+        url: "https://olympiads.hbcse.tifr.res.in/"
+      }
+    ];
+
+    const PINPOINT_ROUTES = [
+      {
+        icon: "🔎",
+        type: "Person proof",
+        title: "Find contestant proof",
+        purpose: "Open the official IMO result search and verify a person-level archive link before sharing a story.",
+        url: "https://www.imo-official.org/results/",
+        template: "Search the person on the official IMO results page. Copy the contestant link only after the name, country, year, and award match."
+      },
+      {
+        icon: "📐",
+        type: "Problem source",
+        title: "Open official IMO problems",
+        purpose: "Plan a class using official IMO problems and shortlists instead of unsourced screenshots.",
+        url: "https://www.imo-official.org/problems/",
+        template: "Pick one official IMO problem. Ask students to write: first observation, failed path, key condition, and final insight."
+      },
+      {
+        icon: "🏛️",
+        type: "Historical proof",
+        title: "Open IMO Hall of Fame",
+        purpose: "Show high performers through official historical records while keeping the message evidence-backed.",
+        url: "https://www.imo-official.org/hall-of-fame/",
+        template: "Use the Hall of Fame to show consistency. Ask: what daily habit could create this level over many years?"
+      },
+      {
+        icon: "🇮🇳",
+        type: "India pathway",
+        title: "Explain IOQM to IMO ladder",
+        purpose: "Give Indian students and parents a clean official pathway from first stage to international training.",
+        url: "https://olympiads.hbcse.tifr.res.in/about-olympiads/stages/mathematical-olympiad/",
+        template: "Explain the ladder: IOQM -> RMO -> INMO -> training camp -> international team. Then give one action for the current stage."
+      },
+      {
+        icon: "💬",
+        type: "Doubt format",
+        title: "Ask a better contest-math question",
+        purpose: "Train students to ask precise doubts before using public forums or teacher groups.",
+        url: "https://math.stackexchange.com/questions/tagged/contest-math",
+        template: "Doubt card: Source: __ | Topic: __ | I tried: __ | It failed at: __ | My exact question: __."
+      },
+      {
+        icon: "📚",
+        type: "Solution comparison",
+        title: "Use AoPS IMO solution wiki",
+        purpose: "Compare methods after a serious attempt and help students learn from multiple solution styles.",
+        url: "https://artofproblemsolving.com/wiki/index.php/International_Mathematical_Olympiad_Problems_and_Solutions",
+        template: "After solving, compare two solutions. Write: shortest idea, most beautiful idea, and one line I can use next time."
+      },
+      {
+        icon: "💻",
+        type: "Coding proof",
+        title: "Open IOI statistics",
+        purpose: "Verify IOI contestants and connect algorithmic olympiad skill with modern AI/software building.",
+        url: "https://stats.ioinformatics.org/",
+        template: "Search the contestant on IOI Stats. Use the result only for verified IOI awards, then connect it to algorithms and clean reasoning."
+      },
+      {
+        icon: "🧠",
+        type: "AI olympiad future",
+        title: "Open IOAI and AIMO route",
+        purpose: "Show students that Olympiad thinking is now connecting with AI, mathematical reasoning, and new competitions.",
+        url: "https://ioai-official.org/",
+        template: "Discuss: What makes a solution trustworthy in AI or math? Students list proof, test cases, evaluation, and correction."
+      }
+    ];
+
     const QUALITY_LEDGER = [
       "Verified Olympiad proof close to the person whenever available.",
       "Student mode teaches courage, patience, and daily action, not celebrity worship.",
@@ -3302,6 +3662,10 @@
       teacherFeatureGrid: document.getElementById("teacherFeatureGrid"),
       communityResourceGrid: document.getElementById("communityResourceGrid"),
       resourceHubCount: document.getElementById("resourceHubCount"),
+      forumBridgeCount: document.getElementById("forumBridgeCount"),
+      bridgeMap: document.getElementById("bridgeMap"),
+      forumPatternGrid: document.getElementById("forumPatternGrid"),
+      pinpointGrid: document.getElementById("pinpointGrid"),
       missionGrid: document.getElementById("missionGrid"),
       coverageGrid: document.getElementById("coverageGrid"),
       qualityPill: document.getElementById("qualityPill"),
@@ -3415,10 +3779,9 @@
         "not verified",
         "not included",
         "not added",
-        "avoid allen",
+        "avoid institute",
         "avoid wording",
-        "unless a primary",
-        "no allen-specific"
+        "unless a primary"
       ].some((phrase) => lower.includes(phrase));
       return internalWarning ? "" : note;
     }
@@ -3562,7 +3925,7 @@
       const metrics = [
         [`${published}/${profiles.length}`, "Published stories", `${needsReview} profiles are searchable but held out of daily rotation.`],
         [formatNumber(totals.people || ARCHIVE_SUMMARY.people), "Archive sparks", "Search official IMO people and copy verified motivation sparks."],
-        [OFFICIAL_OLYMPIAD_RESOURCES.length + COMMUNITY_RESOURCES.length, "Resource streams", "Official proof, problem archives, India pathway, and community rooms."],
+        [OFFICIAL_OLYMPIAD_RESOURCES.length + COMMUNITY_RESOURCES.length + FORUM_PATTERNS.length + PINPOINT_ROUTES.length, "Resource streams", "Official proof, problem archives, India pathway, community rooms, and pinpoint routes."],
         [proofReceipts, "Proof receipts", `${sources} total profile source links kept inside the studio.`]
       ];
 
@@ -3720,6 +4083,97 @@
         link.textContent = "Open link";
         card.append(type, title, note, link);
         els.communityResourceGrid.append(card);
+      });
+    }
+
+    function renderForumBridge(profile) {
+      els.forumBridgeCount.textContent = BRIDGE_STEPS.length + FORUM_PATTERNS.length + PINPOINT_ROUTES.length;
+      renderBridgeMap();
+      renderForumPatterns(profile);
+      renderPinpointDesk(profile);
+    }
+
+    function renderBridgeMap() {
+      els.bridgeMap.innerHTML = "";
+      BRIDGE_STEPS.forEach((step) => {
+        const card = document.createElement("article");
+        const title = document.createElement("strong");
+        const note = document.createElement("span");
+        card.className = "bridge-step";
+        title.textContent = step.title;
+        note.textContent = step.note;
+        card.append(title, note);
+        els.bridgeMap.append(card);
+      });
+    }
+
+    function renderForumPatterns(profile) {
+      els.forumPatternGrid.innerHTML = "";
+      FORUM_PATTERNS.forEach((pattern) => {
+        const card = document.createElement("article");
+        const type = document.createElement("div");
+        const title = document.createElement("h4");
+        const lesson = document.createElement("p");
+        const teacher = document.createElement("p");
+        const actions = document.createElement("div");
+        const link = document.createElement("a");
+        const copyButton = document.createElement("button");
+
+        card.className = "forum-card";
+        type.className = "resource-type";
+        type.textContent = `${pattern.icon} ${pattern.type}`;
+        title.textContent = pattern.title;
+        lesson.textContent = pattern.lesson;
+        teacher.innerHTML = `<strong>Teacher use:</strong> ${pattern.teacherUse}`;
+        actions.className = "pinpoint-actions";
+        link.href = pattern.url;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.textContent = "Open source";
+        copyButton.type = "button";
+        copyButton.textContent = "Copy protocol";
+        copyButton.addEventListener("click", () => {
+          copyText(forumPatternText(pattern, profile), `${pattern.title} protocol`);
+        });
+
+        actions.append(link, copyButton);
+        card.append(type, title, lesson, teacher, actions);
+        els.forumPatternGrid.append(card);
+      });
+    }
+
+    function renderPinpointDesk(profile) {
+      els.pinpointGrid.innerHTML = "";
+      PINPOINT_ROUTES.forEach((route) => {
+        const card = document.createElement("article");
+        const type = document.createElement("div");
+        const title = document.createElement("h4");
+        const purpose = document.createElement("p");
+        const template = document.createElement("p");
+        const actions = document.createElement("div");
+        const link = document.createElement("a");
+        const copyButton = document.createElement("button");
+
+        card.className = "pinpoint-card";
+        type.className = "resource-type";
+        type.textContent = `${route.icon} ${route.type}`;
+        title.textContent = route.title;
+        purpose.textContent = route.purpose;
+        template.innerHTML = `<strong>Use:</strong> ${route.template}`;
+        actions.className = "pinpoint-actions";
+        link.href = route.url;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.textContent = "Open";
+        copyButton.type = "button";
+        copyButton.textContent = "Copy prompt";
+        copyButton.addEventListener("click", () => {
+          copyText(pinpointText(route, profile), `${route.title} prompt`);
+        });
+
+        actions.append(link, copyButton);
+        card.append(type, title, purpose, template, actions);
+        els.pinpointGrid.append(card);
       });
     }
 
@@ -4067,6 +4521,7 @@
       renderSharePack(profile);
       renderTeacherCommandCenter(profile);
       renderCommunityHub();
+      renderForumBridge(profile);
       updateAudienceControls();
       els.messageText.value = formatWhatsApp(profile, state.messageMode);
     }
@@ -4525,6 +4980,20 @@
         "",
         STYLE_DIVIDER,
         "",
+        sectionTitle("💬", "Before Asking A Doubt"),
+        "",
+        "Use this five-line format so your teacher can help you faster and so your own thinking becomes sharper:",
+        "",
+        `${icons[0]} *Source:* Where is the problem from?`,
+        `${icons[1]} *Topic:* Which idea seems involved?`,
+        `${icons[2]} *Attempt:* What did I try honestly?`,
+        `${icons[3]} *Break point:* Which line stopped me?`,
+        `${icons[4]} *Exact question:* What do I want to understand now?`,
+        "",
+        quoteLine("A clear doubt is already half a solution."),
+        "",
+        STYLE_DIVIDER,
+        "",
         sectionTitle("🎨", "Mini Visual Activity"),
         "",
         bulletLines(visual.slice(0, 3), profile),
@@ -4625,6 +5094,14 @@
         `${icons[3]} *4. Student reflection - 90 seconds*\n   Ask students to complete: Today's problem trained me in ___ because ___.`,
         "",
         `${icons[4]} *5. Action - 90 seconds*\n   ${emphasizeKeyTerms(profile.practice)}`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🌐", "Forum-To-Classroom Bridge"),
+        "",
+        BRIDGE_STEPS.map((step, index) => `${index + 1}. *${step.title}*\n   ${step.note}`).join("\n\n"),
+        "",
+        "This keeps global resources useful without turning them into shortcuts. The student's attempt remains the center.",
         "",
         STYLE_DIVIDER,
         "",
@@ -4827,6 +5304,80 @@
         "Use this only as a small spark. Your explanation, your classroom observation, and your encouragement remain the most important part.",
         "",
         styleFrame("✍️ *Learning is not built by one message.*\n\n*It is built by what students repeat after the message.*")
+      ].join("\n");
+    }
+
+    function forumPatternText(pattern, profile) {
+      const icons = emojiPalette(profile);
+      return [
+        styleFrame(`🌐 *${fancyTitle("GLOBAL FORUM BRIDGE")}*`, `*${pattern.icon} ${pattern.title}*`),
+        "",
+        `📅 *${formatIndiaDate()}*`,
+        "",
+        `👤 *Today's story:* ${profile.name}`,
+        `🧠 *Thinking lens:* ${thinkingLens(profile)} under pressure`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🎯", "Why This Matters"),
+        "",
+        `${icons[0]} ${pattern.lesson}`,
+        "",
+        sectionTitle("👩‍🏫", "Teacher Use"),
+        "",
+        `${icons[1]} ${pattern.teacherUse}`,
+        "",
+        sectionTitle("✍️", "Student Use"),
+        "",
+        `${icons[2]} ${pattern.studentUse}`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🧭", "Classroom Protocol"),
+        "",
+        BRIDGE_STEPS.map((step, index) => `${index + 1}. *${step.title}*\n${step.note}`).join("\n\n"),
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🔗", "Source"),
+        "",
+        pattern.url,
+        "",
+        styleFrame("✅ *Use forums as learning rooms, not shortcut machines.*\n\n*Attempt first. Ask clearly. Bring the learning back.*")
+      ].join("\n");
+    }
+
+    function pinpointText(route, profile) {
+      const icons = emojiPalette(profile);
+      return [
+        styleFrame(`📍 *${fancyTitle("PINPOINT DESK")}*`, `*${route.icon} ${route.title}*`),
+        "",
+        `📅 *${formatIndiaDate()}*`,
+        "",
+        `👤 *Today's profile:* ${profile.name}`,
+        `🧠 *Habit lens:* ${thinkingLens(profile)} under pressure`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🎯", "Purpose"),
+        "",
+        `${icons[0]} ${route.purpose}`,
+        "",
+        sectionTitle("🧪", "Ready Use"),
+        "",
+        `${icons[1]} ${route.template}`,
+        "",
+        sectionTitle("💬", "Teacher-to-student line"),
+        "",
+        quoteLine("Do not use a resource to escape thinking. Use it to improve the quality of your next attempt."),
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🔗", "Direct Link"),
+        "",
+        route.url,
+        "",
+        styleFrame("✍️ *Notebook rule*\n\n*After opening the link, write one method learned and one mistake corrected.*")
       ].join("\n");
     }
 
