@@ -1995,6 +1995,228 @@
       background: linear-gradient(135deg, #ffe6a2, #d5a94a);
     }
 
+    .teacher-command-center,
+    .community-launchpad {
+      display: grid;
+      gap: 16px;
+      border: 1px solid rgba(23, 20, 17, .13);
+      border-radius: 8px;
+      padding: clamp(18px, 2.4vw, 26px);
+      background:
+        linear-gradient(135deg, rgba(255, 253, 246, .98), rgba(235, 244, 239, .94)),
+        #fffdf6;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .teacher-command-center {
+      background:
+        linear-gradient(135deg, rgba(18, 16, 12, .97), rgba(24, 61, 56, .93)),
+        #171411;
+      color: #fffdf6;
+    }
+
+    .command-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+    }
+
+    .command-kicker {
+      width: fit-content;
+      border: 1px solid rgba(213, 169, 74, .45);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: #ffe6a2;
+      background: rgba(255, 253, 246, .08);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .community-launchpad .command-kicker {
+      color: #5b3f09;
+      background: #fff4d6;
+      border-color: rgba(156, 111, 37, .34);
+    }
+
+    .command-head h3 {
+      margin: 10px 0 0;
+      max-width: 860px;
+      font-family: var(--serif);
+      font-size: clamp(27px, 3.2vw, 44px);
+      line-height: 1.04;
+      font-weight: 700;
+    }
+
+    .command-head p {
+      margin: 8px 0 0;
+      max-width: 86ch;
+      color: rgba(255, 253, 246, .76);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 720;
+    }
+
+    .community-launchpad .command-head p {
+      color: var(--muted);
+    }
+
+    .command-badge {
+      min-width: 132px;
+      border: 1px solid rgba(255, 230, 162, .26);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255, 253, 246, .08);
+      text-align: center;
+    }
+
+    .community-launchpad .command-badge {
+      border-color: var(--line);
+      background: #fffaf0;
+    }
+
+    .command-badge strong {
+      display: block;
+      color: #ffe6a2;
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: .9;
+    }
+
+    .community-launchpad .command-badge strong {
+      color: var(--ink);
+    }
+
+    .command-badge span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 253, 246, .72);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .community-launchpad .command-badge span {
+      color: var(--muted);
+    }
+
+    .feature-grid,
+    .resource-link-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .teacher-feature-card,
+    .resource-card {
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      min-height: 226px;
+      border: 1px solid rgba(255, 230, 162, .2);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 253, 246, .07);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07);
+    }
+
+    .resource-card {
+      min-height: 204px;
+      border-color: var(--line);
+      background: #fffdf7;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 230, 162, .26);
+      border-radius: 8px;
+      background: rgba(255, 253, 246, .09);
+      font-size: 18px;
+    }
+
+    .feature-eyebrow,
+    .resource-type {
+      color: #ffe6a2;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .resource-type {
+      color: #6a4a13;
+    }
+
+    .teacher-feature-card h4,
+    .resource-card h4 {
+      margin: 0;
+      color: #fffdf6;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .resource-card h4 {
+      color: var(--ink);
+    }
+
+    .teacher-feature-card p,
+    .resource-card p {
+      margin: 0;
+      color: rgba(255, 253, 246, .72);
+      font-size: 12.5px;
+      line-height: 1.44;
+      font-weight: 720;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+    }
+
+    .feature-problem {
+      color: rgba(255, 230, 162, .82) !important;
+    }
+
+    .command-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .command-actions button,
+    .resource-card a {
+      min-height: 34px;
+      border: 1px solid rgba(255, 230, 162, .3);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #fffdf6;
+      background: rgba(255, 253, 246, .08);
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .command-actions button:first-child {
+      color: #12100c;
+      background: linear-gradient(135deg, #ffe6a2, #d5a94a);
+    }
+
+    .resource-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-color: rgba(156, 111, 37, .28);
+      color: #12100c;
+      background: #fff4d6;
+    }
+
     .mission-control {
       background:
         linear-gradient(135deg, rgba(255, 253, 246, .98), rgba(238, 246, 243, .95)),
@@ -2055,6 +2277,11 @@
 
       .share-studio {
         grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .resource-link-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .archive-stats {
@@ -2195,8 +2422,19 @@
       .official-links,
       .coverage-grid,
       .mission-grid,
-      .share-pack-grid {
+      .share-pack-grid,
+      .feature-grid,
+      .resource-link-grid {
         grid-template-columns: 1fr;
+      }
+
+      .command-head {
+        grid-template-columns: 1fr;
+      }
+
+      .command-badge {
+        justify-self: start;
+        text-align: left;
       }
 
       .archive-head {
@@ -2327,6 +2565,42 @@
             </p>
           </div>
           <div class="mission-grid" id="missionGrid"></div>
+        </section>
+
+        <section class="teacher-command-center" data-view="story" aria-label="Teacher command center">
+          <div class="command-head">
+            <div>
+              <span class="command-kicker">Teacher Command Center</span>
+              <h3>20 one-tap solutions for the real problems Olympiad teachers face every week.</h3>
+              <p>
+                Each card turns the current profile into a small teaching move: a hook, a board prompt,
+                a student reflection, a parent note, or a recovery action for students who are stuck.
+              </p>
+            </div>
+            <div class="command-badge">
+              <strong>20</strong>
+              <span>ready moves</span>
+            </div>
+          </div>
+          <div class="feature-grid" id="teacherFeatureGrid"></div>
+        </section>
+
+        <section class="community-launchpad" data-view="story" aria-label="Olympiad resource and community launchpad">
+          <div class="command-head">
+            <div>
+              <span class="command-kicker">Resource + Community Launchpad</span>
+              <h3>One place for official proof, problems, pathways, and serious discussion rooms.</h3>
+              <p>
+                Official sources remain the proof layer. Community links are kept separate as learning
+                spaces where teachers and advanced students can find discussions, hints, and problem culture.
+              </p>
+            </div>
+            <div class="command-badge">
+              <strong id="resourceHubCount">0</strong>
+              <span>launch links</span>
+            </div>
+          </div>
+          <div class="resource-link-grid" id="communityResourceGrid"></div>
         </section>
 
         <section class="content-grid" data-view="story">
@@ -2647,11 +2921,296 @@
       }
     ];
 
+    const TEACHER_FEATURES = [
+      {
+        icon: "🎙️",
+        title: "Opening Hook",
+        problem: "Students treat motivation as a forward, not a thinking moment.",
+        solution: "Start class with a 40-second profile hook and one question tied to today's topic.",
+        action: "Use today's profile to ask: Which Olympiad habit will this problem train today?"
+      },
+      {
+        icon: "🧭",
+        title: "5-Minute Class Flow",
+        problem: "Teachers need something usable without spending extra prep time.",
+        solution: "A fixed flow: hook, proof, journey, student reflection, one small action.",
+        action: "Run the 5-minute ritual before the first hard problem of the day."
+      },
+      {
+        icon: "🧩",
+        title: "Proof Habit Lens",
+        problem: "Students know formulas but cannot explain why a step is valid.",
+        solution: "Name one habit: invariance, extremal thinking, casework, construction, or contradiction.",
+        action: "Ask students to underline the step where logic, not memory, carries the solution."
+      },
+      {
+        icon: "🪜",
+        title: "Journey Ladder",
+        problem: "Big achievers feel too far away from school students.",
+        solution: "Draw a simple ladder: school struggle -> contest habit -> public impact.",
+        action: "Map today's profile into three steps on the board."
+      },
+      {
+        icon: "📝",
+        title: "Mistake To Method",
+        problem: "Students hide mistakes because mistakes feel like proof of weakness.",
+        solution: "Turn each mistake into a named method: missed condition, weak diagram, unchecked case.",
+        action: "Collect one good mistake and rewrite it as a class learning point."
+      },
+      {
+        icon: "⏱️",
+        title: "20-Minute Recovery",
+        problem: "After failing a problem, many students stop trying for the day.",
+        solution: "Use a short recovery protocol: what I tried, where it broke, what I test next.",
+        action: "Give the recovery prompt before showing the solution."
+      },
+      {
+        icon: "📊",
+        title: "Topic Heat Map",
+        problem: "Practice becomes random and students cannot see patterns in weakness.",
+        solution: "Track attempts across algebra, number theory, geometry, combinatorics, and proof writing.",
+        action: "Ask every student to mark today's problem by topic and habit."
+      },
+      {
+        icon: "🧠",
+        title: "Struggle Normalizer",
+        problem: "Talented students assume confusion means they are not good enough.",
+        solution: "Use the story to show that deep fields reward staying with unclear problems.",
+        action: "Say clearly: confusion is not the end of thinking; it is the beginning of real thinking."
+      },
+      {
+        icon: "🔐",
+        title: "Source Trust Badge",
+        problem: "Motivational claims spread without proof and teachers lose trust.",
+        solution: "Keep official Olympiad proof and public-impact sources visible, but limit WhatsApp links.",
+        action: "Open the proof link once before sharing the story."
+      },
+      {
+        icon: "👥",
+        title: "Peer Explanation Pair",
+        problem: "Students can solve but cannot communicate solutions clearly.",
+        solution: "Pair students: one explains the idea, the other checks assumptions and gaps.",
+        action: "Use two minutes for peer explanation after the first attempt."
+      },
+      {
+        icon: "🏠",
+        title: "Parent Bridge",
+        problem: "Parents often see marks but not invisible thinking growth.",
+        solution: "Send a parent note that praises effort, correction, and return to the problem.",
+        action: "Copy Parent Note after a difficult worksheet day."
+      },
+      {
+        icon: "🧪",
+        title: "Lab Style Discussion",
+        problem: "Olympiad classes can become lecture-heavy during hard topics.",
+        solution: "Use the profile as a lab entry: hypothesis, failed attempt, refinement, proof.",
+        action: "Ask students to write one experiment they tried in the solution."
+      },
+      {
+        icon: "🌐",
+        title: "Community Launch",
+        problem: "Students do not know where serious problem discussions live.",
+        solution: "Send them to curated community spaces only after they have attempted the problem.",
+        action: "Use the resource launchpad for discussion and comparison after class."
+      },
+      {
+        icon: "📚",
+        title: "Problem Archive Route",
+        problem: "Teachers need fast access to old IMO problems and official results.",
+        solution: "Keep IMO Results, Problems, Hall of Fame, and India pathway links one tap away.",
+        action: "Open one official problem/source link while planning the week."
+      },
+      {
+        icon: "🧮",
+        title: "A1 To IMO Bridge",
+        problem: "New students jump too quickly from school exercises to impossible problems.",
+        solution: "Build a ladder from numerical confidence to proof structure to contest creativity.",
+        action: "After every hard problem, ask: what was the first accessible step?"
+      },
+      {
+        icon: "💬",
+        title: "Doubt Prompt",
+        problem: "Students ask vague doubts like 'I did not understand anything.'",
+        solution: "Force precise doubt language: object, condition, failed idea, next test.",
+        action: "Ask: which line did you believe, and which line stopped you?"
+      },
+      {
+        icon: "📅",
+        title: "Weekly Theme Pack",
+        problem: "Daily motivation loses force without a weekly learning arc.",
+        solution: "Run themes: proof week, geometry week, number theory week, coding week, AI reasoning week.",
+        action: "Choose one theme and keep all stories tied to it for five days."
+      },
+      {
+        icon: "🚦",
+        title: "Readiness Signal",
+        problem: "Teachers need to know who needs rescue and who needs stretch problems.",
+        solution: "Use exit tickets: green means solved, yellow means partial idea, red means stuck honestly.",
+        action: "Collect one-line exit tickets before moving to the full solution."
+      },
+      {
+        icon: "⚙️",
+        title: "Multi-Olympiad Desk",
+        problem: "Math students also ask about IOI, IPhO, IChO, IOAI, and AIMO.",
+        solution: "Keep official cross-domain Olympiad links visible without mixing proof claims.",
+        action: "Use the launchpad to direct the student to the right official stream."
+      },
+      {
+        icon: "👑",
+        title: "Royal Share Standard",
+        problem: "Generic WhatsApp messages feel forgettable and low-effort.",
+        solution: "Use restrained typography: one strong hook, one proof, one habit, one action.",
+        action: "Copy Royal Short when the goal is inspiration; copy Teacher Lab when the goal is instruction."
+      }
+    ];
+
+    const COMMUNITY_RESOURCES = [
+      {
+        type: "Official proof",
+        title: "IMO Official Home",
+        note: "Main official site for editions, countries, problems, Hall of Fame, and results.",
+        url: "https://www.imo-official.org/"
+      },
+      {
+        type: "Official proof",
+        title: "IMO Results + Contestant Search",
+        note: "Use this for person-level proof links, country pages, and individual records.",
+        url: "https://www.imo-official.org/results/"
+      },
+      {
+        type: "Official problems",
+        title: "IMO Problems + Shortlists",
+        note: "Official problem PDFs; recent shortlist PDFs become available after the next IMO.",
+        url: "https://www.imo-official.org/problems/"
+      },
+      {
+        type: "Official proof",
+        title: "IMO Hall of Fame",
+        note: "Best historical IMO performers by medals, perfect scores, special prizes, and participations.",
+        url: "https://www.imo-official.org/hall-of-fame/"
+      },
+      {
+        type: "Latest official",
+        title: "IMO 2026 Official Edition",
+        note: "Current official 2026 edition page. Use it until the local searchable archive is regenerated beyond 2025.",
+        url: "https://www.imo-official.org/editions/2026/"
+      },
+      {
+        type: "India official",
+        title: "HBCSE Olympiads",
+        note: "Official Indian olympiad hub for mathematics, sciences, astronomy, and junior science.",
+        url: "https://olympiads.hbcse.tifr.res.in/"
+      },
+      {
+        type: "India pathway",
+        title: "HBCSE Mathematical Olympiad Stages",
+        note: "Use for IOQM, RMO, INMO, INMOTC, and India IMO pathway explanation.",
+        url: "https://olympiads.hbcse.tifr.res.in/about-olympiads/stages/mathematical-olympiad/"
+      },
+      {
+        type: "India official",
+        title: "IOQM Portal",
+        note: "First-stage mathematics qualifier updates and registration-related information.",
+        url: "https://ioqm.mtai.org.in/"
+      },
+      {
+        type: "Community",
+        title: "AoPS Community",
+        note: "Large math contest discussion board; best used after students attempt a problem.",
+        url: "https://artofproblemsolving.com/community"
+      },
+      {
+        type: "Problem archive",
+        title: "AoPS IMO Problems Wiki",
+        note: "Community-maintained IMO problem and solution pages for discussion and comparison.",
+        url: "https://artofproblemsolving.com/wiki/index.php/International_Mathematical_Olympiad_Problems_and_Solutions"
+      },
+      {
+        type: "Problem archive",
+        title: "Evan Chen Problem Archive",
+        note: "Curated olympiad problems and solutions, including IMO and national contests.",
+        url: "https://web.evanchen.cc/problems.html"
+      },
+      {
+        type: "Community",
+        title: "Math StackExchange Contest Math",
+        note: "Useful for precise doubts and alternate explanations; teachers should guide students to ask well.",
+        url: "https://math.stackexchange.com/questions/tagged/contest-math"
+      },
+      {
+        type: "Advanced community",
+        title: "MathOverflow",
+        note: "Research-level mathematics community; useful for teachers exploring deeper context.",
+        url: "https://mathoverflow.net/"
+      },
+      {
+        type: "Community",
+        title: "Mathematical Olympiads Discord",
+        note: "Community site for olympiad learners, problem-of-the-day activity, and discussions.",
+        url: "https://mathematics.isodn.org/"
+      },
+      {
+        type: "Community",
+        title: "vEnhance Server Info",
+        note: "Evan Chen's public community information page for high-school olympiad math discussions.",
+        url: "https://web.evanchen.cc/discord.html"
+      },
+      {
+        type: "Informatics official",
+        title: "IOI Official",
+        note: "International Olympiad in Informatics site, including beginner guidance and journal.",
+        url: "https://ioinformatics.org/"
+      },
+      {
+        type: "Informatics proof",
+        title: "IOI Statistics",
+        note: "Official-style contestant, medal, country, and task statistics for informatics.",
+        url: "https://stats.ioinformatics.org/"
+      },
+      {
+        type: "Physics official",
+        title: "IPhO Documentation",
+        note: "Official physics olympiad documentation, history, statistics, literature, and resources.",
+        url: "https://www.ipho-new.org/documentations/"
+      },
+      {
+        type: "Physics problems",
+        title: "IPhO Problems And Solutions",
+        note: "Physics olympiad problem archive; useful as a teaching resource with source awareness.",
+        url: "https://ipho.olimpicos.net/"
+      },
+      {
+        type: "Chemistry proof",
+        title: "IChO Results",
+        note: "International Chemistry Olympiad result database hosted for the Steering Committee.",
+        url: "https://www.icho-official.org/results/"
+      },
+      {
+        type: "Chemistry problems",
+        title: "IChO Competition Problems",
+        note: "Competition problem collections from the International Chemistry Olympiads.",
+        url: "https://icho.sk/competition-problems/"
+      },
+      {
+        type: "AI olympiad",
+        title: "International Olympiad in AI",
+        note: "Official AI olympiad for high-school students and national organizations.",
+        url: "https://ioai-official.org/"
+      },
+      {
+        type: "AI + math",
+        title: "AIMO Prize",
+        note: "AI Mathematical Olympiad prize connecting IMO-level reasoning with modern AI.",
+        url: "https://aimoprize.com/"
+      }
+    ];
+
     const QUALITY_LEDGER = [
       "Verified Olympiad proof close to the person whenever available.",
       "Student mode teaches courage, patience, and daily action, not celebrity worship.",
       "Teacher mode respects the teacher and gives a classroom flow, not a lecture to teachers.",
-      "Coaching-specific claims stay hidden unless supported by a credible source."
+      "Coaching-specific claims stay hidden unless supported by a credible source.",
+      "Official links are proof sources; community links are discussion spaces after a serious attempt."
     ];
 
     const TRACK_FILTERS = [
@@ -2740,6 +3299,9 @@
       sourceList: document.getElementById("sourceList"),
       officialLinks: document.getElementById("officialLinks"),
       sharePackGrid: document.getElementById("sharePackGrid"),
+      teacherFeatureGrid: document.getElementById("teacherFeatureGrid"),
+      communityResourceGrid: document.getElementById("communityResourceGrid"),
+      resourceHubCount: document.getElementById("resourceHubCount"),
       missionGrid: document.getElementById("missionGrid"),
       coverageGrid: document.getElementById("coverageGrid"),
       qualityPill: document.getElementById("qualityPill"),
@@ -3000,7 +3562,7 @@
       const metrics = [
         [`${published}/${profiles.length}`, "Published stories", `${needsReview} profiles are searchable but held out of daily rotation.`],
         [formatNumber(totals.people || ARCHIVE_SUMMARY.people), "Archive sparks", "Search official IMO people and copy verified motivation sparks."],
-        [OFFICIAL_OLYMPIAD_RESOURCES.length, "Resource streams", "Math, physics, chemistry, biology, astronomy, informatics, AI."],
+        [OFFICIAL_OLYMPIAD_RESOURCES.length + COMMUNITY_RESOURCES.length, "Resource streams", "Official proof, problem archives, India pathway, and community rooms."],
         [proofReceipts, "Proof receipts", `${sources} total profile source links kept inside the studio.`]
       ];
 
@@ -3089,6 +3651,75 @@
         actions.append(copyButton, whatsappButton);
         card.append(head, copy, actions);
         els.sharePackGrid.append(card);
+      });
+    }
+
+    function renderTeacherCommandCenter(profile) {
+      els.teacherFeatureGrid.innerHTML = "";
+      TEACHER_FEATURES.forEach((feature, index) => {
+        const card = document.createElement("article");
+        const icon = document.createElement("div");
+        const meta = document.createElement("div");
+        const eyebrow = document.createElement("div");
+        const title = document.createElement("h4");
+        const problem = document.createElement("p");
+        const solution = document.createElement("p");
+        const action = document.createElement("p");
+        const actions = document.createElement("div");
+        const copyButton = document.createElement("button");
+        const whatsappButton = document.createElement("button");
+
+        card.className = "teacher-feature-card";
+        card.dataset.featureId = feature.title;
+        icon.className = "feature-icon";
+        icon.textContent = feature.icon;
+        eyebrow.className = "feature-eyebrow";
+        eyebrow.textContent = `Move ${String(index + 1).padStart(2, "0")}`;
+        title.textContent = feature.title;
+        problem.className = "feature-problem";
+        problem.textContent = `Problem: ${feature.problem}`;
+        solution.textContent = `Solution: ${feature.solution}`;
+        action.textContent = `One-tap use: ${feature.action}`;
+        actions.className = "command-actions";
+        copyButton.type = "button";
+        copyButton.textContent = "Copy";
+        whatsappButton.type = "button";
+        whatsappButton.textContent = "WhatsApp";
+
+        copyButton.addEventListener("click", () => {
+          copyText(teacherFeatureText(feature, profile), `${feature.title} teacher move`);
+        });
+        whatsappButton.addEventListener("click", () => {
+          window.open(`https://wa.me/?text=${encodeURIComponent(teacherFeatureText(feature, profile))}`, "_blank", "noreferrer");
+        });
+
+        meta.append(eyebrow, title);
+        actions.append(copyButton, whatsappButton);
+        card.append(icon, meta, problem, solution, action, actions);
+        els.teacherFeatureGrid.append(card);
+      });
+    }
+
+    function renderCommunityHub() {
+      els.resourceHubCount.textContent = COMMUNITY_RESOURCES.length;
+      els.communityResourceGrid.innerHTML = "";
+      COMMUNITY_RESOURCES.forEach((resource) => {
+        const card = document.createElement("article");
+        const type = document.createElement("div");
+        const title = document.createElement("h4");
+        const note = document.createElement("p");
+        const link = document.createElement("a");
+        card.className = "resource-card";
+        type.className = "resource-type";
+        type.textContent = resource.type;
+        title.textContent = resource.title;
+        note.textContent = resource.note;
+        link.href = resource.url;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.textContent = "Open link";
+        card.append(type, title, note, link);
+        els.communityResourceGrid.append(card);
       });
     }
 
@@ -3434,6 +4065,8 @@
       renderMissionGrid();
       renderCoverageGrid();
       renderSharePack(profile);
+      renderTeacherCommandCenter(profile);
+      renderCommunityHub();
       updateAudienceControls();
       els.messageText.value = formatWhatsApp(profile, state.messageMode);
     }
@@ -4154,6 +4787,46 @@
         "Do not prepare only for a medal. Prepare because every honest problem trains the mind to become calmer, sharper, and more courageous.",
         "",
         styleFrame("✍️ *Reflection*\n\n*What did I learn from today's struggle?*")
+      ].join("\n");
+    }
+
+    function teacherFeatureText(feature, profile) {
+      const icons = emojiPalette(profile);
+      return [
+        styleFrame(`👩‍🏫 *${fancyTitle("TEACHER MOVE")}*`, `*${feature.icon} ${feature.title}*`),
+        "",
+        `📅 *${formatIndiaDate()}*`,
+        "",
+        `👤 *Today's story:* ${profile.name}`,
+        `🧠 *Thinking lens:* ${thinkingLens(profile)} under pressure`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("⚠️", "Classroom Problem"),
+        "",
+        `${icons[0]} ${feature.problem}`,
+        "",
+        sectionTitle("✅", "Ready Solution"),
+        "",
+        `${icons[1]} ${feature.solution}`,
+        "",
+        sectionTitle("🎯", "One-Tap Use"),
+        "",
+        `${icons[2]} ${feature.action}`,
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("💬", "Student Reflection"),
+        "",
+        quoteLine("What did today's problem train in me: patience, proof, courage, or clarity?"),
+        "",
+        STYLE_DIVIDER,
+        "",
+        sectionTitle("🙏", "Teacher Note"),
+        "",
+        "Use this only as a small spark. Your explanation, your classroom observation, and your encouragement remain the most important part.",
+        "",
+        styleFrame("✍️ *Learning is not built by one message.*\n\n*It is built by what students repeat after the message.*")
       ].join("\n");
     }
 
